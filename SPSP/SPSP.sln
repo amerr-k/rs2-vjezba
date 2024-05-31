@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPSP", "SPSP\SPSP.csproj", "{674895E6-1BED-4947-B22F-4A88A6B1010D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD3D3468-8BC1-4B74-8769-3FA85BF7D576}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+		Dockerfile.mailservice = Dockerfile.mailservice
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPSP.EmailSubscriber", "SPSP.EmailSubscriber\SPSP.EmailSubscriber.csproj", "{B3E28198-393D-4E05-BB75-59004FC2CE6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPSP.Models", "SPSP.Models\SPSP.Models.csproj", "{5F412FFC-711D-43A3-9909-DFF67A4F7706}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SPSP.Services", "SPSP.Services\SPSP.Services.csproj", "{BD08B400-172E-49E4-AA99-79D42074E8A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{674895E6-1BED-4947-B22F-4A88A6B1010D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674895E6-1BED-4947-B22F-4A88A6B1010D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674895E6-1BED-4947-B22F-4A88A6B1010D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674895E6-1BED-4947-B22F-4A88A6B1010D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E28198-393D-4E05-BB75-59004FC2CE6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E28198-393D-4E05-BB75-59004FC2CE6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E28198-393D-4E05-BB75-59004FC2CE6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E28198-393D-4E05-BB75-59004FC2CE6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F412FFC-711D-43A3-9909-DFF67A4F7706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F412FFC-711D-43A3-9909-DFF67A4F7706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F412FFC-711D-43A3-9909-DFF67A4F7706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F412FFC-711D-43A3-9909-DFF67A4F7706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD08B400-172E-49E4-AA99-79D42074E8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD08B400-172E-49E4-AA99-79D42074E8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD08B400-172E-49E4-AA99-79D42074E8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD08B400-172E-49E4-AA99-79D42074E8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4D23B35-6AAF-413B-B59C-31A1B986C715}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,77 @@
+version: '3'
+services:
+#mssql docker
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    environment:
+      - RABBITMQ_DEFAULT_USER=username
+      - RABBITMQ_DEFAULT_PASS=test
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - 5672
+    networks:
+      - spspnet2024
+
+  spsp-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password1234!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    expose:
+      - 1433
+    networks:
+      - spspnet2024
+
+  spsp-api:
+    restart: unless-stopped
+    build:
+      context: .
+      # dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=spsp-sql,1433;Database=210425;User=sa;Password=Password1234!;ConnectRetryCount=0; TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USERNAME=username
+      - RABBITMQ_PASSWORD=test
+      - RABBITMQ_VIRTUALHOST=/
+    ports:
+      - 7011:7011
+    networks:
+      - spspnet2024
+    links:
+      - spsp-sql
+    depends_on:
+      - spsp-sql
+
+  mailing-service:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile.mailservice
+    environment:
+
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USERNAME=username
+      - RABBITMQ_PASSWORD=test
+      - RABBITMQ_VIRTUALHOST=/
+    depends_on:
+      - rabbitmq
+      - spsp-sql
+      - spsp-api
+    networks:
+      - spspnet2024
+    ports:
+      - 7101:80
+      
+networks:
+  spspnet2024:
+    driver: bridge
